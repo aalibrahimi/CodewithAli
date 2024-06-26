@@ -8,13 +8,15 @@ Last Update: June 26 2024, 3:24 AM EST, blaze
 - On the left side of the search bar, there's a bar showing you the Path. Click in there and type "cmd" then hit ENTER
 
 
-OVERALL:
+## OVERALL:
 These commands are for overall use (whole file/folder).
 
--rebase: git rebase [file hash] --> (*Need more info about this command) (Go back in the past)
-
--stash: git stash --> holds your unsaved changes temporary. Kinda works like copy and paste.
-    -    git stash apply --> applies your held changes.
+- **rebase**: `git rebase [file hash]` --> (*Need more info about this command) (Go back in the past)
+```py
+print("love you Soth")
+```
+-stash: `git stash` --> holds your unsaved changes temporary. Kinda works like copy and paste.
+    -    `git stash apply` --> applies your held changes.
 
 
 BRANCHES:
