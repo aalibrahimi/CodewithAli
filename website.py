@@ -1,4 +1,4 @@
-#To get changes do: git pull
+#To get changes do: git pull (for all branches)
 
 from flask import Flask
 app = Flask(__name__)
