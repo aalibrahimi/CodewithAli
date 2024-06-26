@@ -7,7 +7,7 @@ app = Flask(__name__)
 @app.route("/")
 @app.route("/home")
 def home():
-    return render_template('index.html')
+    return render_template('home.html')
 
 #Putting @app.route() seperate will make a new 'tab' on the website.
 @app.route("/about")
