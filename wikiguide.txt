@@ -39,6 +39,7 @@ or
 - 'base' means *where you want to merge it to* and 'compare' means *what you're merging into the 'base'*. So choose accordingly --> base: ['branch name'] and compare: [main]
 - Write a title (if empty or you can write your own title) and write a description for clarity of merge and purpose
 - You (if branches can merge auotmatically) or Owner (Ali) can confirm the pull request in order to merge the 2 branches
+- Switch to the branch (not main) and do "git pull" in cmd
 
 Check which branch you're in and see all your branches:
 - Write "git branch" in cmd
