@@ -28,6 +28,7 @@ Switch between branches:
 - Write "git switch [branch name]" in cmd
 
 Merge a branch to the *main* branch:
+- Change back to main branch, in cmd
 - Write "git merge -m <message of choice, optional> [branch name]" in cmd
 
 Merge the main branch to a *different* branch:
