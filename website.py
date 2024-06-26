@@ -1,3 +1,5 @@
+#To get changes do: git pull
+
 from flask import Flask
 app = Flask(__name__)
 
