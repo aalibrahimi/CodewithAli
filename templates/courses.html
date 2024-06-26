@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Page</title>
+    <title>Courses Page</title>
     <style>
         body { font-family: 'Arial', sans-serif; margin: 0; background-color: #f4f4f9; color: #333; }
         header { background: #0275d8; padding: 20px 0; text-align: center; color: white; }
@@ -13,6 +13,7 @@
         .container { padding: 20px; max-width: 1200px; margin: 20px auto; background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
         h1 { color: #0275d8; }
         footer { background: #333; color: white; text-align: center; padding: 10px 0; position: fixed; width: 100%; bottom: 0; }
+        .course-card { background: #f4f4f9; padding: 20px; margin: 20px 0; border-radius: 8px; }
     </style>
 </head>
 <body>
@@ -25,15 +26,24 @@
         <a href="/about">About</a>
         <a href="/courses">Courses</a>
         <a href="/contact">Contact</a>
-        <a href="/testimonials">Testimonials</a>
+        <a href="/Reviews">Reviews</a>
         <!--<a href="/blog">Blog</a> -->
-
         <a href="/faq">FAQ</a>
     </nav>
     <div class="container">
-        <h1>About CodeWithAli</h1>
-        <p>CodeWithAli is your go-to platform for personal coding lessons and seminars. Our mission is to make coding accessible and enjoyable for everyone.</p>
-        <p>Ali is a seasoned software developer with years of experience in teaching coding to students of all levels. With a passion for education and a deep understanding of programming, Ali is dedicated to helping you achieve your coding goals.</p>
+        <h1>Our Courses</h1>
+        <div class="course-card">
+            <h3>Introduction to Python</h3>
+            <p>Learn the basics of Python programming in this comprehensive course.</p>
+        </div>
+        <div class="course-card">
+            <h3>Web Development Bootcamp</h3>
+            <p>Master the fundamentals of web development with HTML, CSS, and JavaScript.</p>
+        </div>
+        <div class="course-card">
+            <h3>Data Science with Python</h3>
+            <p>Get started with data science and learn how to analyze data using Python.</p>
+        </div>
     </div>
     <footer>
         &copy; 2024 CodeWithAli. All rights reserved.
