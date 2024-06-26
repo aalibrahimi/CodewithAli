@@ -4,8 +4,8 @@ from flask import Flask, render_template
 app = Flask(__name__)
 
 @app.route("/")
-@app.route("/ali")
-def blazehp():
+@app.route("/home")
+def home():
     return render_template('index.html')
 
 @app.route("/about")
