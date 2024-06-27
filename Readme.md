@@ -15,7 +15,7 @@ These commands are for overall use (whole file/folder).
 ```py
 print("love you Soth")
 ```
-- **stash**: `git stash` --> holds your unsaved changes temporary. Kinda works like copy and paste.
+-stash: `git stash` --> holds your unsaved changes temporary. Kinda works like copy and paste.
     -    `git stash apply` --> applies your held changes.
 
 
