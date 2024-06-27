@@ -1,6 +1,9 @@
 import subprocess
-from flask import Flask, render_template, request
 import threading
+import signal
+import sys
+from flask import Flask, render_template, request
+from waitress import serve
 
 app = Flask(__name__)
 
@@ -38,8 +41,6 @@ def submit_contact():
     name = request.form['name']
     email = request.form['email']
     message = request.form['message']
-    # Here you would typically process the contact form submission
-    # For example, save it to a database or send an email
     return f"Thank you for your message, {name}!"
 
 def open_browser():
@@ -47,8 +48,23 @@ def open_browser():
     chrome_path = 'C:/Program Files/Google/Chrome/Application/chrome.exe'  # Adjust the path if needed
     subprocess.Popen([chrome_path, url])
 
+def run_flask_app():
+    serve(app, host='127.0.0.1', port=5000)
+
+def signal_handler(sig, frame):
+    print('Shutting down gracefully...')
+    sys.exit(0)
+
 if __name__ == '__main__':
-    # Run the browser in a separate thread to avoid blocking
-    threading.Timer(1, open_browser).start()
-    # Start Flask app
-    app.run(debug=True)
+    # Register the signal handler for graceful shutdown
+    signal.signal(signal.SIGINT, signal_handler)
+    
+    # Start the Flask server in a new thread and ensure it stays alive
+    server_thread = threading.Thread(target=run_flask_app, daemon=True)
+    server_thread.start()
+    
+    # Open the browser after a short delay
+    threading.Timer(2, open_browser).start()
+    
+    # Keep the main thread alive to let the server thread run
+    server_thread.join()
