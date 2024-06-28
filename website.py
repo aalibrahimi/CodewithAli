@@ -2,10 +2,14 @@ import subprocess
 import threading
 import signal
 import sys
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, flash, redirect
 from waitress import serve
+from form import RegistrationForm, LoginForm
+
 
 app = Flask(__name__)
+
+app.config['SECRET_KEY'] = 'a4a0293932973cb535044387c45490ff'
 
 @app.route("/")
 @app.route("/home")
@@ -157,10 +161,25 @@ def submit_contact():
         )
     return f"Thank you for your message, {name}!"
 
+@app.route("/register", methods=['GET', 'POST'])
+def register():
+    form = RegistrationForm()
+    if form.validate_on_submit():
+        flash(f'Account Created for {form.username.data}!', 'success')
+        return redirect(location='home')
+    return render_template('register.html', title='Register', form=form)
+
+@app.route("/login")
+def login():
+    form = LoginForm()  # Changed from RegistrationForm to LoginForm
+    return render_template('login.html', title='Login', form=form)
+
 def open_browser():
     url = "http://127.0.0.1:5000/"
-    chrome_path = 'C:/Program Files/Google/Chrome/Application/chrome.exe'  # Adjust the path if needed
-    subprocess.Popen([chrome_path, url])
+    # chrome_path = 'C:/Program Files/Google/Chrome/Application/chrome.exe'  # Adjust the path if needed
+    # subprocess.Popen([chrome_path, url])
+    import webbrowser
+    webbrowser.open(url)
 
 def run_flask_app():
     serve(app, host='127.0.0.1', port=5000)
@@ -169,11 +188,37 @@ def signal_handler(sig, frame):
     print('Shutting down gracefully...')
     sys.exit(0)
 
+def notify():
+    from win10toast import ToastNotifier
+
+    toast = ToastNotifier()
+
+    toast.show_toast(
+        "Reminder",
+        "Make sure to ALWAYS have you branches up to date before you start coding!",
+        duration = 40,
+        icon_path = "./static/alipic.ico",
+        threaded = True,
+    )
+
+# def shutdown_server():
+#     func = request.environ.get('werkzeug.server.shutdown')
+#     if func is None:
+#         raise RuntimeError('Not running with the Werkzeug Server')
+#     func()
+    
+# @app.get('/shutdown')
+# def shutdown():
+#     shutdown_server()
+#     return 'Server shutting down...'
+
 if __name__ == '__main__':
+    # Notify user to keep branches up-to-date
+    notify()
     # Register the signal handler for graceful shutdown
     signal.signal(signal.SIGINT, signal_handler)
     
-    # Start the Flask server in a new thread and ensure it stays alive
+    # # Start the Flask server in a new thread and ensure it stays alive
     server_thread = threading.Thread(target=run_flask_app, daemon=True)
     server_thread.start()
     
@@ -182,3 +227,5 @@ if __name__ == '__main__':
     
     # Keep the main thread alive to let the server thread run
     server_thread.join()
+
+    # app.run(debug=True)
