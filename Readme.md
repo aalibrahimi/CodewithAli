@@ -16,10 +16,10 @@ Before typing anything in CMD (command prompt), open the command prompt of the d
 ## OVERALL:
 These commands are for overall use (whole file/folder).
 
-- **rebase**: `git rebase [file hash]` --> *(*Need more info about this command) (keep up to date) --> 
+- **rebase**: `git rebase [file hash]` --> Used to keep branches (excluding main) up to date.
 - **stash**: `git stash` --> Holds your unsaved changes temporary. Kinda works like copy and paste.
     -    `git stash apply` --> Applies your held changes.
-- checkout --> *(go back in past)
+- **checkout** --> Used to go back in the past.
 
 
 ## BRANCHES:
