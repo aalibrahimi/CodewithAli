@@ -4,78 +4,88 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
-    <style>
-        body { font-family: 'Arial', sans-serif; margin: 0; background-color: #f4f4f9; color: #333; }
-        header { background: #0275d8; padding: 20px 0; text-align: center; color: white; }
-        nav { background: #333; padding: 10px 0; display: flex; align-items: center; justify-content: center; }
-        nav a { color: white; margin: 0 20px; text-decoration: none; font-size: 18px; }
-        nav a:hover { text-decoration: underline; }
-        .container { padding: 20px; max-width: 1200px; margin: 20px auto; background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-        h1 { color: #0275d8; }
-        footer { background: #333; color: white; text-align: center; padding: 10px 0; position: fixed; width: 100%; bottom: 0; }
-        .courses, .testimonials, .contact { margin-top: 40px; }
-        .course-card { background: #f4f4f9; padding: 20px; margin: 20px 0; border-radius: 8px; }
-        .testimonial { background: #f4f4f9; padding: 20px; margin: 20px 0; border-radius: 8px; font-style: italic; }
-    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <header>
-        <img src="{{ url_for('static', filename='alipic.png') }}" alt="CodeWithAli Logo" style="width: 200px; height: auto; border-radius: 50%;">
-
+        <nav>
+            <div class="logo-container">
+                <img src="{{ url_for('static', filename='alipic.png') }}" alt="CodeWithAli Logo" class="logo">
+            </div>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/about">About</a>
+                <a href="/courses">Courses</a>
+                <a href="/contact">Contact</a>
+                <a href="/reviews">Reviews</a>
+                <a href="/faq">FAQ</a>
+            </div>
+        </nav>
     </header>
-    <nav>
-        <a href="/">Home</a>
-        <a href="/about">About</a>
-        <a href="/courses">Courses</a>
-        <a href="/contact">Contact</a>
-        <a href="/Reviews">Reviews</a>
-       <!-- <a href="/blog">Blog</a> -->
-        <a href="/faq">FAQ</a>
-    </nav>
-    <div class="container">
-        <h1>Welcome to CodeWithAli!</h1>
-        <p>This is the home page of your coding lesson platform. Explore our courses and start learning!</p>
-        
-        <div class="courses">
+    <main>
+        <section class="hero">
+            <div class="hero-text">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+    
+            {% endwith %}
+    
+                <h1>Welcome to CodeWithAli!</h1>
+                <p>Explore our courses and start learning today!</p>
+                <a href="/courses" class="btn">Get Started</a>
+            </div>
+            <div class="hero-image">
+                <img src="{{ url_for('static', filename='hero-image.png') }}" alt="Hero Image">
+            </div>
+        </section>
+        <section class="courses">
             <h2>Our Courses</h2>
-            <div class="course-card">
-                <h3>Introduction to Python</h3>
-                <p>Learn the basics of Python programming in this comprehensive course.</p>
+            <div class="course-grid">
+                <div class="course-card">
+                    <h3>Introduction to Python</h3>
+                    <p>Learn the basics of Python programming in this comprehensive course.</p>
+                </div>
+                <div class="course-card">
+                    <h3>Web Development Bootcamp</h3>
+                    <p>Master the fundamentals of web development with HTML, CSS, and JavaScript.</p>
+                </div>
+                <div class="course-card">
+                    <h3>Data Science with Python</h3>
+                    <p>Get started with data science and learn how to analyze data using Python.</p>
+                </div>
+                <div class="course-card">
+                    <h3>Learning Java for Beginners</h3>
+                    <p>Once you feel like you have advanced in Python, it's time to take it up to the next level and learn the more advanced language, Java.</p>
+                </div>
             </div>
-            <div class="course-card">
-                <h3>Web Development Bootcamp</h3>
-                <p>Master the fundamentals of web development with HTML, CSS, and JavaScript.</p>
-            </div>
-            <div class="course-card">
-                <h3>Data Science with Python</h3>
-                <p>Get started with data science and learn how to analyze data using Python.</p>
-            </div>
-            <div class="course-card">
-                <h3>Learning Java for Beginners</h3>
-                <p>Once you feel like you have advanced in Python, it's time to take it up to the next level and learn the more advanced language, Java.</p>
-            </div>
-        </div>
-        
-        <div class="reviews">
+        </section>
+        <section class="reviews">
             <h2>Reviews</h2>
-            <div class="review">
-                <p>"CodeWithAli has been an amazing experience! The lessons are clear and easy to follow."</p>
-                <p>- Student A</p>
+            <div class="review-grid">
+                <div class="review">
+                    <p>"CodeWithAli has been an amazing experience! The lessons are clear and easy to follow."</p>
+                    <p>- Student A</p>
+                </div>
+                <div class="review">
+                    <p>"I've learned so much from the seminars. Highly recommend for anyone looking to improve their coding skills!"</p>
+                    <p>- Student B</p>
+                </div>
             </div>
-            <div class="review">
-                <p>"I've learned so much from the seminars. Highly recommend for anyone looking to improve their coding skills!"</p>
-                <p>- Student B</p>
-            </div>
-        </div>
-        
-        <div class="contact">
+        </section>
+        <section class="contact">
             <h2>Contact Us</h2>
             <p>Email: codewithali.learn@gmail.com</p>
-            <!-- <p>Phone: (123) 456-7890</p> -->
-        </div>
-    </div>
+        </section>
+    </main>
     <footer>
         &copy; 2024 CodeWithAli. All rights reserved.
     </footer>
+    <script src="script.js"></script>
 </body>
 </html>
