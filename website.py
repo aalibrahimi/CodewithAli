@@ -176,10 +176,10 @@ def login():
 
 def open_browser():
     url = "http://127.0.0.1:5000/"
-    # chrome_path = 'C:/Program Files/Google/Chrome/Application/chrome.exe'  # Adjust the path if needed
-    # subprocess.Popen([chrome_path, url])
+    chrome_path = 'C:/Program Files/Google/Chrome/Application/chrome.exe'  # Adjust the path if needed
+    subprocess.Popen([chrome_path, url])
     import webbrowser
-    webbrowser.open(url)
+    #webbrowser.open(url)
 
 def run_flask_app():
     serve(app, host='127.0.0.1', port=5000)
