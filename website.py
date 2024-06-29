@@ -5,11 +5,19 @@ import sys
 from flask import Flask, render_template, request, flash, redirect
 from waitress import serve
 from form import RegistrationForm, LoginForm
+import smtplib, ssl
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+import os
+from dotenv import load_dotenv
+
+
+load_dotenv()
 
 
 app = Flask(__name__)
 
-app.config['SECRET_KEY'] = 'a4a0293932973cb535044387c45490ff'
+app.config['SECRET_KEY'] = os.getenv("SECRET_KEY")
 
 @app.route("/")
 @app.route("/home")
@@ -45,12 +53,6 @@ def submit_contact():
     name = request.form['name']
     email = request.form['email']
     input_message = request.form['message']
-    import smtplib, ssl
-    from email.mime.text import MIMEText
-    from email.mime.multipart import MIMEMultipart
-    import os
-    from dotenv import load_dotenv
-    load_dotenv()
     EMAIL=os.getenv("EMAIL")
     EMAIL_PASSWORD=os.getenv("EMAIL_PASSWORD")
     sender_email = EMAIL
