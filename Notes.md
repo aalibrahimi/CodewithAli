@@ -60,6 +60,11 @@ These commands are for overall use (whole file/folder).
 ### Check which branch you're in and see all your branches:
 - Write `git branch` in cmd/terminal
 
+### Keep branches up-to-date:
+- Go to main branch and use `git pull`
+- Switch to desired branch and use `git rebase main`
+- Then do `git push`
+
 ## PULLS:
 
 To receive the saved changes from Github to your device:
