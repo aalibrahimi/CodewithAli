@@ -3,15 +3,16 @@
 
 ## **Important**
 
-```
-Make sure to ALWAYS have you branches up to date when you log on!
 
-Before typing anything in CMD (command prompt), open the command prompt of the directory (unless advised otherwise). Do that by:
+> Make sure to ALWAYS have you branches up to date when you log on!
+>
+> Before typing anything in CMD (command prompt), open the command prompt of the directory (unless advised otherwise). Do that by:
+> 
+> - Open File Explorer
+> - Open directory of where you've saved the folder of the website
+> - On the left side of the search bar, there's a bar showing you the Path. Click in there and type `cmd` then hit ENTER
+>
 
-- Open File Explorer
-- Open directory of where you've saved the folder of the website
-- On the left side of the search bar, there's a bar showing you the Path. Click in there and type `cmd` then hit ENTER
-```
 
 ## OVERALL:
 These commands are for overall use (whole file/folder).
@@ -49,21 +50,21 @@ These commands are for overall use (whole file/folder).
 - Switch to the main branch and do `git pull` in cmd/terminal
 
 
-### Merge the main branch to a *different* branch:
+### Merge the main branch to a *different* branch: --> Default
 - Go to Github website and select **Pull Requests**
 - Select **New Pull Request**
 - '**base**' means *where you want to merge it to* and '**compare**' means *what you're merging into the 'base'*. So choose accordingly --> base: ['**branch name**'] and compare: **main**
 - Write a title *(if empty or you can write your own title)* and write a description for clarity of merge and purpose
 - You *(if branches can merge auotmatically)* or Owner *(Ali)* can confirm the pull request in order to merge the 2 branches
 - Switch to the branch *(not main)* and do `git pull` in cmd/terminal
+### Keep branches up-to-date (Cleaner way): --> Do this time-to-time
+- Go to main branch and use `git pull`
+- Switch to desired branch and use `git rebase main`
+- Then do `git push`
 
 ### Check which branch you're in and see all your branches:
 - Write `git branch` in cmd/terminal
 
-### Keep branches up-to-date:
-- Go to main branch and use `git pull`
-- Switch to desired branch and use `git rebase main`
-- Then do `git push`
 
 ## PULLS:
 
