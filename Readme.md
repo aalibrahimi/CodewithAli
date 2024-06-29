@@ -1,5 +1,13 @@
-===== WikiGuide =====
-===
+# The Official CodeWithAli Website Repo
+
+## Instructions to run the code
+1. Run `git clone https://github.com/aalibrahimi/CodewithAli.git` in the folder where you want the project to be
+2. Run `cd CodewithAli`
+3. Run `python -m venv .venv`
+4. Run `.\.venv\Scripts\activate`
+5. Run `pip install -r requirements.txt`
+6. Run `python website.py`
+
 
 # **Important**
 
