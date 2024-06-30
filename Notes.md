@@ -5,6 +5,7 @@
 
 
 > Make sure to ALWAYS have you branches up to date when you log on!
+> ALWAYS work in your VENV!
 >
 > Before typing anything in CMD (command prompt), open the command prompt of the directory (unless advised otherwise). Do that by:
 > 

@@ -171,9 +171,16 @@ def register():
         return redirect(location='home')
     return render_template('register.html', title='Register', form=form)
 
-@app.route("/login")
+@app.route("/login", methods=['GET', 'POST'])
 def login():
-    form = LoginForm()  # Changed from RegistrationForm to LoginForm
+    form = LoginForm()
+    # Issue *Fixed: When email and password are correct, runs 'else' 3 times and also runs 2nd 'if' 1 time. Happens when use double quottes in code.
+    if form.validate_on_submit():
+        if form.email.data == 'admin@blog.com' and form.password.data == 'password':
+            flash('You have been logged in!', 'success')
+            return redirect(location='home')
+        else:
+            flash('Log in unsuccessful. Please check email and password', 'danger')
     return render_template('login.html', title='Login', form=form)
 
 def open_browser():
@@ -197,8 +204,8 @@ def notify():
 
     toast.show_toast(
         "Reminder",
-        "Make sure to ALWAYS have you branches up to date before you start coding!",
-        duration = 40,
+        "Make sure to ALWAYS have you branches up to date before you start coding! And Please work in your VENV at all TIMES! (.venv <tab> scripts <tab> activate) -> to exit: (deactivate)",
+        duration = 50,
         icon_path = "./static/alipic.ico",
         threaded = True,
     )
