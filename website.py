@@ -197,6 +197,7 @@ def signal_handler(sig, frame):
     print('Shutting down gracefully...')
     sys.exit(0)
 
+# fix notification for web notification(?)
 def notify():
     from win10toast import ToastNotifier
 
@@ -223,7 +224,7 @@ def notify():
 
 if __name__ == '__main__':
     # Notify user to keep branches up-to-date
-    notify()
+    # notify()
     # Register the signal handler for graceful shutdown
     signal.signal(signal.SIGINT, signal_handler)
     

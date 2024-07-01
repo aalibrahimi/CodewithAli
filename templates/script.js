@@ -27,12 +27,12 @@ const callback = (entries, observer) => {
 
 const observer = new IntersectionObserver(callback, options);
 
-document.querySelectorAll('.course-card, .review, .hero-text').forEach(element => {
+document.querySelectorAll('.course-card, .question-card, .review, .hero-text').forEach(element => {
     observer.observe(element);
 });
 
 // Adding hover effect for buttons
-const buttons = document.querySelectorAll('.btn');
+const buttons = document.querySelectorAll('.btn,');
 buttons.forEach(button => {
     button.addEventListener('mouseenter', () => {
         button.style.transform = 'scale(1.1)';

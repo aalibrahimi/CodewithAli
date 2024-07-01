@@ -4,38 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration Page</title>
-    <style>
-        body { font-family: 'Arial', sans-serif; margin: 0; background-color: #f4f4f9; color: #333; }
-        header { background: #0275d8; padding: 20px 0; text-align: center; color: white; }
-        nav { background: #333; padding: 10px 0; display: flex; align-items: center; justify-content: center; }
-        nav a { color: white; margin: 0 20px; text-decoration: none; font-size: 18px; }
-        nav a:hover { text-decoration: underline; }
-        .container { padding: 20px; max-width: 1200px; margin: 20px auto; background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-        h1 { color: #0275d8; }
-        footer { background: #333; color: white; text-align: center; padding: 10px 0; position: fixed; width: 100%; bottom: 0; }
-    </style>
-</head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_acc.css') }}"></head>
 <body>
     <header>
-        <img src="{{ url_for('static', filename='alipic.png') }}" alt="CodeWithAli Logo" style="width: 200px; height: auto; border-radius: 50%;">
-
+        <!-- Navbar right side, but is showing left side rn -->
+        <div class="collapse navbar-collapse" id="navbarToggle">
+            <div class="nav-reg-log">
+                <!-- Using 'url_for' so no need to manually change each time where the file is (?) -->
+                <p><a href="/login">Login</a> | <a href="/register">Register</a></p>
+            </div>
+        </div>
+        <nav>
+            <div class="logo-container">
+                <img src="{{ url_for('static', filename='alipic.png') }}" alt="CodeWithAli Logo" class="logo">
+            </div>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/about">About</a>
+                <a href="/courses">Courses</a>
+                <a href="/contact">Contact</a>
+                <a href="/reviews">Reviews</a>
+                <a href="/faq">FAQ</a>
+            </div>
+        </nav>
     </header>
-    <nav>
-        <a href="/">Home</a>
-        <a href="/about">About</a>
-        <a href="/courses">Courses</a>
-        <a href="/contact">Contact</a>
-        <a href="/testimonials">Testimonials</a>
-        <!--<a href="/blog">Blog</a> -->
-
-        <a href="/faq">FAQ</a>
-    </nav>
     <div class="container">
         <form method="post" action="">
             {{ form.hidden_tag() }}
             <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Join Today</legend>
-                <div class="form-group">
+                <legend class="border-bottom legend-card">Join Today</legend>
+                <div class="form-group btn-input">
                     {{ form.username.label(class="form-control-label") }}
                 <!-- If our form had errors on it, it'd print out *below* -->
                     {% if form.username.errors %}
@@ -48,8 +46,6 @@
                     {% else %}
                         {{ form.username(class="form-control form-control-lg") }}
                     {% endif %}
-
-                    {{ form.username(class="form-control form-control-lg") }}
                 </div>
                 <div class="form-group">
                     {{ form.email.label(class="form-control-label") }}
@@ -103,11 +99,12 @@
     <div class="border-top pt-3">
         <small class="text-muted">
                                                 <!-- Name passed in here is name of route function! -->
-            Already have an account? <a class="ml-2" href="{{ url_for('login') }}">Sign In</a>
+            Already have an account? <a class="ml-2" href="/login">Sign In</a>
         </small>
     </div>
     <footer>
         &copy; 2024 CodeWithAli. All rights reserved.
     </footer>
+    <script src="script.js"></script>
 </body>
 </html>
