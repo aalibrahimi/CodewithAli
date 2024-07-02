@@ -27,7 +27,7 @@ const callback = (entries, observer) => {
 
 const observer = new IntersectionObserver(callback, options);
 
-document.querySelectorAll('.course-card, .question-card, .review, .hero-text').forEach(element => {
+document.querySelectorAll('.course-card, .question-card, .about-card, .review, .hero-text').forEach(element => {
     observer.observe(element);
 });
 

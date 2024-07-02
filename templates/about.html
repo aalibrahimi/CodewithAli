@@ -3,40 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Page</title>
-    <style>
-        body { font-family: 'Arial', sans-serif; margin: 0; background-color: #f4f4f9; color: #333; }
-        header { background: #0275d8; padding: 20px 0; text-align: center; color: white; }
-        nav { background: #333; padding: 10px 0; display: flex; align-items: center; justify-content: center; }
-        nav a { color: white; margin: 0 20px; text-decoration: none; font-size: 18px; }
-        nav a:hover { text-decoration: underline; }
-        .container { padding: 20px; max-width: 1200px; margin: 20px auto; background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-        h1 { color: #0275d8; }
-        footer { background: #333; color: white; text-align: center; padding: 10px 0; position: fixed; width: 100%; bottom: 0; }
-    </style>
+    <title>Home Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <header>
-        <img src="{{ url_for('static', filename='alipic.png') }}" alt="CodeWithAli Logo" style="width: 200px; height: auto; border-radius: 50%;">
-
+        <!-- Navbar right side, but is showing left side rn -->
+        <div class="collapse navbar-collapse" id="navbarToggle">
+            <div class="nav-reg-log">
+                <!-- Using 'url_for' so no need to manually change each time where the file is (?) -->
+                <p><a href="/login">Login</a> | <a href="/register">Register</a></p>
+            </div>
+        </div>
+        <nav>
+            <div class="logo-container">
+                <img src="{{ url_for('static', filename='alipic.png') }}" alt="CodeWithAli Logo" class="logo">
+            </div>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/about">About</a>
+                <a href="/courses">Courses</a>
+                <a href="/contact">Contact</a>
+                <a href="/reviews">Reviews</a>
+                <a href="/faq">FAQ</a>
+            </div>
+        </nav>
     </header>
-    <nav>
-        <a href="/">Home</a>
-        <a href="/about">About</a>
-        <a href="/courses">Courses</a>
-        <a href="/contact">Contact</a>
-        <a href="/testimonials">Testimonials</a>
-        <!--<a href="/blog">Blog</a> -->
-
-        <a href="/faq">FAQ</a>
-    </nav>
-    <div class="container">
-        <h1>About CodeWithAli</h1>
-        <p>CodeWithAli is your go-to platform for personal coding lessons and seminars. Our mission is to make coding accessible and enjoyable for everyone.</p>
-        <p>Ali is a seasoned software developer with years of experience in teaching coding to students of all levels. With a passion for education and a deep understanding of programming, Ali is dedicated to helping you achieve your coding goals.</p>
-    </div>
+    <main>
+        <section class="hero">
+            <div class="hero-text">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+    
+            {% endwith %}
+    
+                <h1>Welcome to CodeWithAli!</h1>
+                <p>Explore our courses and start learning today!</p>
+                <a href="/courses" class="btn">Get Started</a>
+            </div>
+            <div class="hero-image">
+                <img src="{{ url_for('static', filename='hero-image.png') }}" alt="Hero Image">
+            </div>
+        </section>
+        <section class="abouts">
+            <h2>About CodeWithAli</h2>
+            <div class="about-grid">
+                <div class="about-card">
+                    <h3>CodeWithAli is your go-to platform for personal coding lessons and seminars. Our mission is to make coding accessible and enjoyable for everyone.</h3>
+                    <p>Ali is a seasoned software developer with years of experience in teaching coding to students of all levels. With a passion for education and a deep understanding of programming, Ali is dedicated to helping you achieve your coding goals.</p>
+                </div>
+            </div>
+        </section>
+        <section class="contact">
+            <h2>Contact Us</h2>
+            <p>Email: codewithali.learn@gmail.com</p>
+        </section>
+    </main>
     <footer>
         &copy; 2024 CodeWithAli. All rights reserved.
     </footer>
+    <script src="script.js"></script>
 </body>
 </html>

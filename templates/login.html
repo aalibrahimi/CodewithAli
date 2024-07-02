@@ -4,87 +4,91 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
-    <style>
-        body { font-family: 'Arial', sans-serif; margin: 0; background-color: #f4f4f9; color: #333; }
-        header { background: #0275d8; padding: 20px 0; text-align: center; color: white; }
-        nav { background: #333; padding: 10px 0; display: flex; align-items: center; justify-content: center; }
-        nav a { color: white; margin: 0 20px; text-decoration: none; font-size: 18px; }
-        nav a:hover { text-decoration: underline; }
-        .container { padding: 20px; max-width: 1200px; margin: 20px auto; background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-        h1 { color: #0275d8; }
-        footer { background: #333; color: white; text-align: center; padding: 10px 0; position: fixed; width: 100%; bottom: 0; }
-    </style>
-</head>
-<body>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_login.css') }}"></head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet"><body>
     <header>
-        <img src="{{ url_for('static', filename='alipic.png') }}" alt="CodeWithAli Logo" style="width: 200px; height: auto; border-radius: 50%;">
-
-    </header>
-    <nav>
-        <a href="/">Home</a>
-        <a href="/about">About</a>
-        <a href="/courses">Courses</a>
-        <a href="/contact">Contact</a>
-        <a href="/testimonials">Testimonials</a>
-        <!--<a href="/blog">Blog</a> -->
-
-        <a href="/faq">FAQ</a>
-    </nav>
-    <div class="container">
-        <form method="post" action="">
-            {{ form.hidden_tag() }}
-            <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Log In</legend>
-                <div class="form-group">
-                    {{ form.email.label(class="form-control-label") }}
-                    <!-- If our form had errors on it, it'd print out *below* -->
-                    {% if form.email.errors %}
-                        {{ form.email(class="form-control form-control-lg is-invalid") }}
-                        <div class="invalid-feedback">
-                            {% for errors in form.email.errors %}
-                                <span>{{ error }}</span>
-                            {% endfor %}
-                        </div>
-                    {% else %}
-                        {{ form.email(class="form-control form-control-lg") }}
-                    {% endif %}
-                </div>
-                <div class="form-group">
-                    {{ form.password.label(class="form-control-label") }}
-                    <!-- If our form had errors on it, it'd print out *below* -->
-                    {% if form.password.errors %}
-                        {{ form.password(class="form-control form-control-lg is-invalid") }}
-                        <div class="invalid-feedback">
-                            {% for errors in form.password.errors %}
-                                <span>{{ error }}</span>
-                            {% endfor %}
-                        </div>
-                    {% else %}
-                        {{ form.password(class="form-control form-control-lg") }}
-                    {% endif %}
-                </div>
-                    <div class="form-check">
-                        {{ form.remember(class="form-check-input") }}
-                        {{ form.remember.label(class="form-check-label") }}
-
-                    </div>
-            </fieldset>
-            <div class="form-group">
-                {{ form.submit(class="btn-outline-info") }}
+        <!-- Navbar right side, but is showing left side rn -->
+        <div class="collapse navbar-collapse" id="navbarToggle">
+            <div class="nav-reg-log">
+                <!-- Using 'url_for' so no need to manually change each time where the file is (?) -->
+                <p><a href="/login">Login</a> | <a href="/register">Register</a></p>
             </div>
-                <small class="text-muted ml-2">
-                    <a href="#">Forgot Password?</a>
-                </small>
-        </form>
-    </div>
-    <div class="border-top pt-3">
-        <small class="text-muted">
-                                                <!-- Name passed in here is name of route function! -->
-            Need an account? <a class="ml-2" href="{{ url_for('register') }}">Sign Up</a>
-        </small>
+        </div>
+        <nav>
+            <div class="logo-container">
+                <img src="{{ url_for('static', filename='alipic.png') }}" alt="CodeWithAli Logo" class="logo">
+            </div>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/about">About</a>
+                <a href="/courses">Courses</a>
+                <a href="/contact">Contact</a>
+                <a href="/reviews">Reviews</a>
+                <a href="/faq">FAQ</a>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <section class="amakers">
+            <h2>Login Page</h2>
+            <div class="amaker-grid">
+                <div class="amaker-card">
+                    <form method="post" action="">
+                        {{ form.hidden_tag() }}
+                        <fieldset class="form-group">
+                            <legend class="border-bottom legend-card legend-font">Join Today</legend>
+                            <div class="form-group">
+                                {{ form.email.label(class="label-font") }}
+                                <!-- If our form had errors on it, it'd print out *below* -->
+                                {% if form.email.errors %}
+                                    {{ form.email(class="label-box is-invalid") }}
+                                    <div class="invalid-feedback">
+                                        {% for errors in form.email.errors %}
+                                            <span>{{ error }}</span>
+                                        {% endfor %}
+                                    </div>
+                                {% else %}
+                                    {{ form.email(class="label-box") }}
+                                {% endif %}
+                            </div>
+                            <div class="form-group">
+                                {{ form.password.label(class="label-font") }}
+                                <!-- If our form had errors on it, it'd print out *below* -->
+                                {% if form.password.errors %}
+                                    {{ form.password(class="label-box is-invalid") }}
+                                    <div class="invalid-feedback">
+                                        {% for errors in form.password.errors %}
+                                            <span>{{ error }}</span>
+                                        {% endfor %}
+                                    </div>
+                                {% else %}
+                                    {{ form.password(class="label-box") }}
+                                {% endif %}
+                            </div>
+                            <div class="form-group">
+                                {{ form.submit(class="btn-sign btn-submit") }}
+                            </div>            
+            
+                        </fieldset>
+                        <label>
+                                                    <!-- Name passed in here is name of route function! -->
+                            <div class="btn-sign">Need an account? <a href="/register">Sign Up</a></div>
+                        </label>
+                        
+            
+                    </form>
+                </div>
+            </div>
+        </section>
+        
     </div>
     <footer>
         &copy; 2024 CodeWithAli. All rights reserved.
     </footer>
+    <script src="script.js"></script>
 </body>
 </html>
+
+<!-- Check if button passes data to website.py -->

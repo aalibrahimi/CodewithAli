@@ -10,10 +10,9 @@
     <header>
         <!-- Navbar right side, but is showing left side rn -->
         <div class="collapse navbar-collapse" id="navbarToggle">
-            <div class="navbar-nav">
+            <div class="nav-reg-log">
                 <!-- Using 'url_for' so no need to manually change each time where the file is (?) -->
-                <a class="nav-item nav-link" href="{{ url_for('login') }}">Login</a>
-                <a class="nav-item nav-link" href="{{ url_for('register') }}">Register</a>
+                <p><a href="/login">Login</a> | <a href="/register">Register</a></p>
             </div>
         </div>
         <nav>

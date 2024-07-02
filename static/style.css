@@ -163,7 +163,7 @@ header {
     animation: fadeInRight 2s ease-in-out;
 }
 
-.courses, .reviews, .contact, .questions {
+.courses, .reviews, .contact, .questions, .abouts {
     padding: 60px 20px;
     text-align: center;
     background-color: #1f1f1f;
@@ -171,13 +171,15 @@ header {
     border-radius: 20px 20px 0 0;
 }
 
+
+
 h2 {
     font-size: 2.5em;
     margin-bottom: 20px;
     color: #ff6f61;
 }
 
-.course-grid, .question-grid, .review-grid {
+.course-grid, .question-grid, .about-grid, .review-grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -191,6 +193,17 @@ h2 {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     max-width: 300px;
+    flex: 1 1 calc(33.333% - 40px);
+}
+
+.about-card {
+    background: #333;
+    padding: 40px;
+    margin: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    max-width: 1350px;
     flex: 1 1 calc(33.333% - 40px);
 }
 

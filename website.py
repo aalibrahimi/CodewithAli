@@ -169,7 +169,7 @@ def register():
     if form.validate_on_submit():
         flash(f'Account Created for {form.username.data}!', 'success')
         return redirect(location='home')
-    return render_template('register.html', title='Register', form=form)
+    return render_template('register.html', title='register', form=form)
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
