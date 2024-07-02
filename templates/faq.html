@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
+    <title>FAQ Page</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
@@ -43,45 +43,37 @@
     
             {% endwith %}
     
-                <h1>Welcome to CodeWithAli!</h1>
-                <p>Explore our courses and start learning today!</p>
-                <a href="/courses" class="btn">Get Started</a>
+                <h1>FAQs</h1>
+                <p>Here you can find most common asked questions. You can also contact us for more information.</p>
+                <a href="/contact" class="btn">Contact Us</a>
             </div>
             <div class="hero-image">
                 <img src="{{ url_for('static', filename='hero-image.png') }}" alt="Hero Image">
             </div>
         </section>
-        <section class="courses">
-            <h2>Our Courses</h2>
-            <div class="course-grid">
-                <div class="course-card">
-                    <h3>Introduction to Python</h3>
-                    <p>Learn the basics of Python programming in this comprehensive course.</p>
+        <section class="questions">
+            <h2>Questions</h2>
+            <div class="question-grid">
+                <div class="question-card">
+                    <h3>Q: How much do you cost?</h3>
+                    <p>A: Only 10 USD</p>
+                    <div class="btn-info">
+                        <a href="#">Detailed Answer</a>
+                    </div>
                 </div>
-                <div class="course-card">
-                    <h3>Web Development Bootcamp</h3>
-                    <p>Master the fundamentals of web development with HTML, CSS, and JavaScript.</p>
+                <div class="question-card">
+                    <h3>Q: How much do you cost?2</h3>
+                    <p>A: Only 10 USD</p>
+                    <div class="btn-info">
+                        <a href="#">Detailed Answer</a>
+                    </div>
                 </div>
-                <div class="course-card">
-                    <h3>Data Science with Python</h3>
-                    <p>Get started with data science and learn how to analyze data using Python.</p>
-                </div>
-                <div class="course-card">
-                    <h3>Learning Java for Beginners</h3>
-                    <p>Once you feel like you have advanced in Python, it's time to take it up to the next level and learn the more advanced language, Java.</p>
-                </div>
-            </div>
-        </section>
-        <section class="reviews">
-            <h2>Reviews</h2>
-            <div class="review-grid">
-                <div class="review">
-                    <p>"CodeWithAli has been an amazing experience! The lessons are clear and easy to follow."</p>
-                    <p>- Student A</p>
-                </div>
-                <div class="review">
-                    <p>"I've learned so much from the seminars. Highly recommend for anyone looking to improve their coding skills!"</p>
-                    <p>- Student B</p>
+                <div class="question-card">
+                    <h3>Q: How much do you cost?3</h3>
+                    <p>A: Only 10 USD</p>
+                    <div class="btn-info">
+                        <a href="#">Detailed Answer</a>
+                    </div>
                 </div>
             </div>
         </section>

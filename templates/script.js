@@ -42,15 +42,16 @@ const callback = (entries, observer) => {
 // Create a new observer with the callback and options
 const observer = new IntersectionObserver(callback, options);
 
-// Find all elements that need to animate on scroll
-document.querySelectorAll('.course-card, .review, .hero-text').forEach(element => {
-    // Start watching each element
+
+document.querySelectorAll('.course-card, .question-card, .about-card, .review, .hero-text').forEach(element => {
+
     observer.observe(element);
 });
 
 // Adding hover effect for buttons
-// Find all elements with the class 'btn' (buttons)
-const buttons = document.querySelectorAll('.btn');
+
+const buttons = document.querySelectorAll('.btn,');
+
 buttons.forEach(button => {
     // When the mouse enters the button
     button.addEventListener('mouseenter', () => {

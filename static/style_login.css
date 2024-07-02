@@ -1,0 +1,283 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    /* Gradient still looks kinda off, with ripples */
+    background-blend-mode: color;
+    background: linear-gradient(90deg, #333 55%, #510303 100%),
+                linear-gradient(80deg, #510303 100%, #333 0%);
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+
+header {
+    background: #1f1f1f;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-size: 18px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #ff6f61;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #ff6f61;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.nav-links a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.nav-reg-log p{
+    position: absolute;
+    font-size: 110%;
+    color:#ffffff;
+}
+
+.nav-reg-log a:link{
+    color:#ffffff;
+}
+
+.nav-reg-log a:visited{
+    color:#ffffff;
+}
+
+.btn-submit {
+    background: linear-gradient(135deg, #ff1500 0%, #7c0404 100%);
+    width: 20%;
+    padding: 10px 10px;
+    margin: 10px 0 10px 300px;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 100px;
+    padding-left: 12px;
+    color: white;
+    font-weight: bold;
+}
+
+/* https://www.gradient-animator.com/ */
+/* https://blog.hubspot.com/website/css-animation-examples */
+
+.btn-submit:hover {
+    background: linear-gradient(270deg, #c71100, #510303);
+    background-size: 600% 600%;
+
+    -webkit-animation: SubmitHover 3s ease infinite;
+    -moz-animation: SubmitHover 3s ease infinite;
+    animation: SubmitHover 3s ease infinite;
+}
+
+@-webkit-keyframes SubmitHover {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes SubmitHover {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes SubmitHover {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+.btn-submit:active{
+    box-shadow: 2px 2px 5px #510303;
+}
+
+
+.btn-sign {
+    cursor: pointer;
+}
+
+.btn-sign a:link {
+    font-size: 95%;
+    color: #d7263d;
+}
+
+.btn-sign a:visited {
+    color: #2649d7;
+}
+
+.btn-sign a:hover {
+    outline: auto;
+    outline-style: solid;
+    outline-width: medium;
+    outline-color: #ffffffa5;
+}
+
+.legend-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px 40px;
+    background: linear-gradient(135deg, #ff1500 0%, #510303 100%);
+    color: white;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+
+.legend-font {
+    /* // <uniquifier>: Use a unique and descriptive class name
+    // <weight>: Use a value from 300 to 700 */
+
+  font-family: "Space Grotesk", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 20px;
+}
+
+
+.back {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px 40px;
+    background: linear-gradient(135deg, #ff6f61 0%, #d7263d 100%);
+    color: white;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+
+.btn-input {
+    width: 200%;
+    padding: 10px 0px;
+    margin: 10px 0;
+    box-sizing: border-box;
+}
+
+.label-box {
+    width: 100%;
+    padding: 10px 0px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: solid #ed4333;
+    /* border-radius: 100px; */
+    padding-left: 12px;
+    background: transparent;
+    transition: all 0.4s ease-in-out;
+    color: white;
+}
+
+.label-box:focus{
+    background-color: #6a6a6a;
+    width: 100%;
+}
+
+.label-font {
+    font-weight: bold;
+}
+
+
+h2 {
+    position: absolute;
+    left: 910px;
+    top: 130px;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    /* color: #ff6f61; */
+    color: #da2b1b;
+
+}
+
+.amaker-grid {
+    display: block;
+    /* flex-wrap: wrap; */
+    justify-content: center;
+    position: relative;
+    bottom: -100px;
+    left: 500px;
+}
+
+.amaker-card {
+    background: #333;
+    padding: 50px;
+    margin: 30px 80px 80px 80px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    max-width: 800px;
+    flex: 1 1 calc(33.333% - 40px);
+}
+
+/* .check-box {
+    background-image: url(check.png);
+    image-rendering: optimizeSpeed;
+} */
+
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    bottom: -319px;
+}
+
+
+@keyframes fadeInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

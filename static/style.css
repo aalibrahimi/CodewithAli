@@ -102,6 +102,57 @@ header {
     transition: background 0.3s, color 0.3s;
 }
 
+
+.nav-reg-log p{
+    position: absolute;
+    font-size: 110%;
+    color:#ffffff;
+}
+
+.nav-reg-log a:link{
+    color:#ffffff;
+}
+
+.nav-reg-log a:visited{
+    color:#ffffff;
+}
+
+.btn-info a:link {
+    font-size: 80%;
+    color: #d7263d;
+}
+
+.btn-info a:visited {
+    color: #2649d7;
+}
+
+.btn-info a:hover {
+    outline: auto;
+    outline-style: solid;
+    outline-width: medium;
+    outline-color: #ffffffa5;
+}
+
+.legend-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px 40px;
+    background: linear-gradient(135deg, #ff6f61 0%, #d7263d 100%);
+    color: white;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+
+.back {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px 40px;
+    background: linear-gradient(135deg, #ff6f61 0%, #d7263d 100%);
+    color: white;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+
 .hero-text .btn:hover {
     background: #ff6f61;
     color: white;
@@ -112,7 +163,7 @@ header {
     animation: fadeInRight 2s ease-in-out;
 }
 
-.courses, .reviews, .contact {
+.courses, .reviews, .contact, .questions, .abouts {
     padding: 60px 20px;
     text-align: center;
     background-color: #1f1f1f;
@@ -120,13 +171,15 @@ header {
     border-radius: 20px 20px 0 0;
 }
 
+
+
 h2 {
     font-size: 2.5em;
     margin-bottom: 20px;
     color: #ff6f61;
 }
 
-.course-grid, .review-grid {
+.course-grid, .question-grid, .about-grid, .review-grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -140,6 +193,28 @@ h2 {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     max-width: 300px;
+    flex: 1 1 calc(33.333% - 40px);
+}
+
+.about-card {
+    background: #333;
+    padding: 40px;
+    margin: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    max-width: 1350px;
+    flex: 1 1 calc(33.333% - 40px);
+}
+
+.question-card {
+    background: #333;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    max-width: 400px;
     flex: 1 1 calc(33.333% - 40px);
 }
 
