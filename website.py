@@ -1,14 +1,13 @@
-import subprocess
-import threading
-import signal
-import sys
-from flask import Flask, render_template, request, flash, redirect, url_for
+from flask import Flask, render_template, request, flash, redirect, url_for, session
 from waitress import serve
 from form import RegistrationForm, LoginForm
 import smtplib, ssl
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 import os
+import threading
+import signal
+import subprocess
 from dotenv import load_dotenv
 from db import db, bcrypt, User
 import logging
@@ -197,6 +196,7 @@ def login():
         if form.validate_on_submit():
             user = User.query.filter_by(email=form.email.data).first()
             if user and bcrypt.check_password_hash(user.password, form.password.data):
+                session['user_id'] = user.id  # Store user ID in session
                 flash('You have been logged in!', 'success')
                 return redirect(url_for('home'))
             else:
@@ -205,6 +205,12 @@ def login():
         app.logger.error(f"Error during login: {e}")
         flash('An error occurred during login. Please try again.', 'danger')
     return render_template('login.html', title='Login', form=form)
+
+@app.route("/logout")
+def logout():
+    session.pop('user_id', None)  # Clear user ID from session
+    flash('You have been logged out.', 'success')
+    return redirect(url_for('home'))
 
 def open_browser():
     url = "http://127.0.0.1:5000/"
