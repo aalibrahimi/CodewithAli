@@ -4,15 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration Page</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style_reg.css') }}"></head>
+    <!-- Link to the CSS stylesheet for the registration page -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_reg.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet"><body>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+</head>
+<body>
     <header>
         <!-- Navbar right side, but is showing left side rn -->
         <div class="collapse navbar-collapse" id="navbarToggle">
             <div class="nav-reg-log">
-                <!-- Using 'url_for' so no need to manually change each time where the file is (?) -->
+                <!-- Using 'url_for' so no need to manually change each time where the file is -->
                 <p><a href="/login">Login</a> | <a href="/register">Register</a></p>
             </div>
         </div>
@@ -35,17 +38,20 @@
             <h2>Registration Page</h2>
             <div class="amaker-grid">
                 <div class="amaker-card">
+                    <!-- Registration form -->
                     <form method="post" action="">
+                        <!-- CSRF token for security -->
                         {{ form.hidden_tag() }}
                         <fieldset class="form-group">
                             <legend class="border-bottom legend-card legend-font">Join Today</legend>
                             <div class="form-group">
+                                <!-- Username field with validation error display -->
                                 {{ form.username.label(class="label-font") }}
-                            <!-- If our form had errors on it, it'd print out *below* -->
+                                <!-- If our form had errors on it, it'd print out below -->
                                 {% if form.username.errors %}
                                     {{ form.username(class="label-box is-invalid") }}
                                     <div class="invalid-feedback">
-                                        {% for errors in form.username.errors %}
+                                        {% for error in form.username.errors %}
                                             <span>{{ error }}</span>
                                         {% endfor %}
                                     </div>
@@ -54,12 +60,13 @@
                                 {% endif %}
                             </div>
                             <div class="form-group">
+                                <!-- Email field with validation error display -->
                                 {{ form.email.label(class="label-font") }}
-                                <!-- If our form had errors on it, it'd print out *below* -->
+                                <!-- If our form had errors on it, it'd print out below -->
                                 {% if form.email.errors %}
                                     {{ form.email(class="label-box is-invalid") }}
                                     <div class="invalid-feedback">
-                                        {% for errors in form.email.errors %}
+                                        {% for error in form.email.errors %}
                                             <span>{{ error }}</span>
                                         {% endfor %}
                                     </div>
@@ -68,12 +75,13 @@
                                 {% endif %}
                             </div>
                             <div class="form-group">
+                                <!-- Password field with validation error display -->
                                 {{ form.password.label(class="label-font") }}
-                                <!-- If our form had errors on it, it'd print out *below* -->
+                                <!-- If our form had errors on it, it'd print out below -->
                                 {% if form.password.errors %}
                                     {{ form.password(class="label-box is-invalid") }}
                                     <div class="invalid-feedback">
-                                        {% for errors in form.password.errors %}
+                                        {% for error in form.password.errors %}
                                             <span>{{ error }}</span>
                                         {% endfor %}
                                     </div>
@@ -82,12 +90,13 @@
                                 {% endif %}
                             </div>
                             <div class="form-group">
+                                <!-- Confirm Password field with validation error display -->
                                 {{ form.confirm_password.label(class="label-font") }}
-                                <!-- If our form had errors on it, it'd print out *below* -->
+                                <!-- If our form had errors on it, it'd print out below -->
                                 {% if form.confirm_password.errors %}
                                     {{ form.confirm_password(class="label-box is-invalid") }}
                                     <div class="invalid-feedback">
-                                        {% for errors in form.confirm_password.errors %}
+                                        {% for error in form.confirm_password.errors %}
                                             <span>{{ error }}</span>
                                         {% endfor %}
                                     </div>
@@ -96,30 +105,18 @@
                                 {% endif %}
                             </div>
                             <div class="form-group">
+                                <!-- Submit button for the form -->
                                 {{ form.submit(class="btn-sign btn-submit") }}
                             </div>
-                            <!-- https://www.w3schools.com/html/html_forms.asp -->
-                             <!-- https://www.w3schools.com/html/html_form_elements.asp -->
-                              <!-- https://www.w3schools.com/css/css_form.asp -->
-
-            
-            
                         </fieldset>
-                        <!-- <div class="form-group">
-                            {{ form.submit(class="btn-outline-info") }}
-                        </div> -->
-                        
                         <label>
-                                                    <!-- Name passed in here is name of route function! -->
+                            <!-- Link to login page -->
                             <div class="btn-sign">Already have an account? <a href="/login">Sign In</a></div>
                         </label>
-                        
-            
                     </form>
                 </div>
             </div>
         </section>
-        
     </div>
     <footer>
         &copy; 2024 CodeWithAli. All rights reserved.
