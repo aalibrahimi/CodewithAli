@@ -1,6 +1,7 @@
 /* style.css */
 
-:root {
+:root 
+{
     --primary-color: #ff6f61;
     --secondary-color: #d7263d;
     --background-dark: #333;
@@ -142,8 +143,9 @@ header {
 .courses,
 .reviews,
 .contact,
-.questions,
-.abouts {
+.faqs,
+.abouts 
+{
     padding: 60px 20px;
     text-align: center;
     background-color: var(--background-light);
@@ -159,7 +161,7 @@ h2 {
 
 .course-grid,
 .review-grid,
-.question-grid,
+.faq-grid,
 .about-grid {
     display: flex;
     flex-wrap: wrap;
@@ -169,7 +171,7 @@ h2 {
 
 .course-card,
 .review,
-.question-card,
+.faq-card,
 .about-card {
     background: var(--background-dark);
     padding: 20px;

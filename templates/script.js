@@ -44,7 +44,7 @@ const observer = new IntersectionObserver(callback, options);
 
 document
     .querySelectorAll(
-        ".course-card, .question-card, .about-card, .review, .hero-text"
+        ".course-card, .faq-card, .about-card, .review, .hero-text"
     )
     .forEach((element) => {
         observer.observe(element);
