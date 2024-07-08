@@ -1,11 +1,13 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FAQ Page</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
+
 <body>
     <header>
         <!-- Navbar right side, but is showing left side rn -->
@@ -34,15 +36,15 @@
             <div class="hero-text">
                 {% with messages = get_flashed_messages(with_categories=true) %}
                 {% if messages %}
-                    {% for category, message in messages %}
-                        <div class="alert alert-{{ category }}">
-                            {{ message }}
-                        </div>
-                    {% endfor %}
+                {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">
+                    {{ message }}
+                </div>
+                {% endfor %}
                 {% endif %}
-    
-            {% endwith %}
-    
+
+                {% endwith %}
+
                 <h1>FAQs</h1>
                 <p>Here you can find most common asked questions. You can also contact us for more information.</p>
                 <a href="/contact" class="btn">Contact Us</a>
@@ -87,4 +89,5 @@
     </footer>
     <script src="script.js"></script>
 </body>
+
 </html>

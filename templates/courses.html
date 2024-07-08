@@ -1,11 +1,13 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Courses</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
+
 <body>
     <header>
         <!-- Navbar right side, but is showing left side rn -->
@@ -34,15 +36,15 @@
             <div class="hero-text">
                 {% with messages = get_flashed_messages(with_categories=true) %}
                 {% if messages %}
-                    {% for category, message in messages %}
-                        <div class="alert alert-{{ category }}">
-                            {{ message }}
-                        </div>
-                    {% endfor %}
+                {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">
+                    {{ message }}
+                </div>
+                {% endfor %}
                 {% endif %}
-    
-            {% endwith %}
-    
+
+                {% endwith %}
+
                 <h1>CodeWithAli Courses</h1>
                 <p>Here you can view all the courses we offer!</p>
             </div>
@@ -51,21 +53,21 @@
             </div>
         </section>
         <section class="courses">
-                <h2>Our Courses</h2>
-                <div class="course-grid">
-                    <div class="course-card">
-                        <h3>Introduction to Python</h3>
-                        <p>Learn the basics of Python programming in this comprehensive course.</p>
-                    </div>
-                    <div class="course-card">
-                        <h3>Web Development Bootcamp</h3>
-                        <p>Master the fundamentals of web development with HTML, CSS, and JavaScript.</p>
-                    </div>
-                    <div class="course-card">
-                        <h3>Data Science with Python</h3>
-                        <p>Get started with data science and learn how to analyze data using Python.</p>
-                    </div>
+            <h2>Our Courses</h2>
+            <div class="course-grid">
+                <div class="course-card">
+                    <h3>Introduction to Python</h3>
+                    <p>Learn the basics of Python programming in this comprehensive course.</p>
                 </div>
+                <div class="course-card">
+                    <h3>Web Development Bootcamp</h3>
+                    <p>Master the fundamentals of web development with HTML, CSS, and JavaScript.</p>
+                </div>
+                <div class="course-card">
+                    <h3>Data Science with Python</h3>
+                    <p>Get started with data science and learn how to analyze data using Python.</p>
+                </div>
+            </div>
             </div>
         </section>
     </main>
@@ -74,4 +76,5 @@
     </footer>
     <script src="script.js"></script>
 </body>
+
 </html>

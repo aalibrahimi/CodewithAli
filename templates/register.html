@@ -1,13 +1,17 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration Page</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style_reg.css') }}"></head>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet"><body>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
     <header>
         <!-- Navbar right side, but is showing left side rn -->
         <div class="collapse navbar-collapse" id="navbarToggle">
@@ -41,91 +45,92 @@
                             <legend class="border-bottom legend-card legend-font">Join Today</legend>
                             <div class="form-group">
                                 {{ form.username.label(class="label-font") }}
-                            <!-- If our form had errors on it, it'd print out *below* -->
+                                <!-- If our form had errors on it, it'd print out *below* -->
                                 {% if form.username.errors %}
-                                    {{ form.username(class="label-box is-invalid") }}
-                                    <div class="invalid-feedback">
-                                        {% for errors in form.username.errors %}
-                                            <span>{{ error }}</span>
-                                        {% endfor %}
-                                    </div>
+                                {{ form.username(class="label-box is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for errors in form.username.errors %}
+                                    <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
                                 {% else %}
-                                    {{ form.username(class="label-box") }}
+                                {{ form.username(class="label-box") }}
                                 {% endif %}
                             </div>
                             <div class="form-group">
                                 {{ form.email.label(class="label-font") }}
                                 <!-- If our form had errors on it, it'd print out *below* -->
                                 {% if form.email.errors %}
-                                    {{ form.email(class="label-box is-invalid") }}
-                                    <div class="invalid-feedback">
-                                        {% for errors in form.email.errors %}
-                                            <span>{{ error }}</span>
-                                        {% endfor %}
-                                    </div>
+                                {{ form.email(class="label-box is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for errors in form.email.errors %}
+                                    <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
                                 {% else %}
-                                    {{ form.email(class="label-box") }}
+                                {{ form.email(class="label-box") }}
                                 {% endif %}
                             </div>
                             <div class="form-group">
                                 {{ form.password.label(class="label-font") }}
                                 <!-- If our form had errors on it, it'd print out *below* -->
                                 {% if form.password.errors %}
-                                    {{ form.password(class="label-box is-invalid") }}
-                                    <div class="invalid-feedback">
-                                        {% for errors in form.password.errors %}
-                                            <span>{{ error }}</span>
-                                        {% endfor %}
-                                    </div>
+                                {{ form.password(class="label-box is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for errors in form.password.errors %}
+                                    <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
                                 {% else %}
-                                    {{ form.password(class="label-box") }}
+                                {{ form.password(class="label-box") }}
                                 {% endif %}
                             </div>
                             <div class="form-group">
                                 {{ form.confirm_password.label(class="label-font") }}
                                 <!-- If our form had errors on it, it'd print out *below* -->
                                 {% if form.confirm_password.errors %}
-                                    {{ form.confirm_password(class="label-box is-invalid") }}
-                                    <div class="invalid-feedback">
-                                        {% for errors in form.confirm_password.errors %}
-                                            <span>{{ error }}</span>
-                                        {% endfor %}
-                                    </div>
+                                {{ form.confirm_password(class="label-box is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for errors in form.confirm_password.errors %}
+                                    <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
                                 {% else %}
-                                    {{ form.confirm_password(class="label-box") }}
+                                {{ form.confirm_password(class="label-box") }}
                                 {% endif %}
                             </div>
                             <div class="form-group">
                                 {{ form.submit(class="btn-sign btn-submit") }}
                             </div>
                             <!-- https://www.w3schools.com/html/html_forms.asp -->
-                             <!-- https://www.w3schools.com/html/html_form_elements.asp -->
-                              <!-- https://www.w3schools.com/css/css_form.asp -->
+                            <!-- https://www.w3schools.com/html/html_form_elements.asp -->
+                            <!-- https://www.w3schools.com/css/css_form.asp -->
 
-            
-            
+
+
                         </fieldset>
                         <!-- <div class="form-group">
                             {{ form.submit(class="btn-outline-info") }}
                         </div> -->
-                        
+
                         <label>
-                                                    <!-- Name passed in here is name of route function! -->
+                            <!-- Name passed in here is name of route function! -->
                             <div class="btn-sign">Already have an account? <a href="/login">Sign In</a></div>
                         </label>
-                        
-            
+
+
                     </form>
                 </div>
             </div>
         </section>
-        
+
     </div>
     <footer>
         &copy; 2024 CodeWithAli. All rights reserved.
     </footer>
     <script src="script.js"></script>
 </body>
+
 </html>
 
 <!-- Check if button passes data to website.py -->

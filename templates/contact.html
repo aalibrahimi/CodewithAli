@@ -1,37 +1,44 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Page</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style_con.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function ()
+        {
             const invalidChars = ['<', '>', '{', '}', '[', ']', '(', ')', '/', '\\', '=', ';', ':', '"', "'"];
             const inputs = document.querySelectorAll('input, textarea');
 
-            function preventInvalidChars(event) {
-                if (invalidChars.includes(event.key)) {
+            function preventInvalidChars(event)
+            {
+                if (invalidChars.includes(event.key))
+                {
                     event.preventDefault();
                     alert('Invalid character detected. Please remove them.');
                 }
             }
 
-            function preventPaste(event) {
+            function preventPaste(event)
+            {
                 event.preventDefault();
                 alert('Pasting is not allowed.');
             }
 
-            inputs.forEach(input => {
+            inputs.forEach(input =>
+            {
                 input.addEventListener('keydown', preventInvalidChars);
                 input.addEventListener('paste', preventPaste);
             });
         });
     </script>
 </head>
+
 <body>
     <header>
         <!-- Navbar right side, but is showing left side rn -->
@@ -60,15 +67,15 @@
             <div class="hero-text">
                 {% with messages = get_flashed_messages(with_categories=true) %}
                 {% if messages %}
-                    {% for category, message in messages %}
-                        <div class="alert alert-{{ category }}">
-                            {{ message }}
-                        </div>
-                    {% endfor %}
+                {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">
+                    {{ message }}
+                </div>
+                {% endfor %}
                 {% endif %}
-    
+
                 {% endwith %}
-    
+
                 <h1>Contact Us</h1>
                 <p>Send us a message! Ask us anything you would like to know.</p>
             </div>
@@ -76,30 +83,14 @@
                 <img src="{{ url_for('static', filename='hero-image.png') }}" alt="Hero Image">
             </div>
         </section>
-        <div class="container">
-            <div class="amaker-grid">
-                <div class="amaker-card">
-                    <form action="/submit_contact" method="post" onsubmit="return validateForm()">
-                        <label class="label-font" for="name">Name:</label>
-                        <input class="label-box" type="text" id="name" name="name" required pattern="[A-Za-z0-9\s.,'-]+">
-                        
-                        <label class="label-font" for="email">Email:</label>
-                        <input class="label-box" type="email" id="email" name="email" required pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}">
-                        
-                        <label class="label-font" for="message">Message:</label>
-                        <textarea class="label-box" id="message" name="message" rows="4" required pattern="[A-Za-z0-9\s.,'!?\-()@]+"></textarea>
-                        
-                        <button class="btn-submit" type="submit">Send Message</button>
-                    </form>
-                </div>
-            </div>
-        </div>
+        
     </main>
     <footer>
         &copy; 2024 CodeWithAli. All rights reserved.
     </footer>
     <script src="script.js"></script>
 </body>
+
 </html>
 
 <!-- Check if button passes data to website.py -->
